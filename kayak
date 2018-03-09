@@ -44,6 +44,9 @@ if [ $# -gt 0 ]; then
             bash $ROOT_DIR/kayak dump
             $DOCKERCOMPOSE down -v
         ;;
+        install)
+            $DOCKERCOMPOSE run --rm php composer create-project --prefer-dist laravel/lumen ./
+        ;;
         bash)
             echo "Exposing bash of Wordpress container"
             $DOCKERCOMPOSE exec php bash
